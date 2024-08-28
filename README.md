@@ -29,7 +29,7 @@ git remote remove origin
 ```
 Step 6: Add new origin
 ```shell
-git remote set origin https://github.com/MrJay37/abagauss-react-app
+git remote add origin https://github.com/MrJay37/abagauss-react-app
 ```
 Step 7: Pull code first (README.md can cause conflict)
 ```shell
