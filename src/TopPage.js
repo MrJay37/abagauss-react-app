@@ -2,10 +2,13 @@ import React, { useState } from "react";
 import "./TopPage.scss";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
-
+import { FaRegEye } from "react-icons/fa";
+import { PiEyeClosedDuotone } from "react-icons/pi";
 const TopPage = () => {
   const [usernameMessage, setUsernameMessage] = useState("");
   const [passMessage, setPassMessage] = useState("");
+  const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
 
   const subForm = (event) => {
     event.preventDefault();
@@ -27,7 +30,7 @@ const TopPage = () => {
       setUsernameMessage("※Please enter the proper Username");
       isRight = false;
     }
-
+    // Validation for password
     if (passwordPattern.test(password)) {
       console.log("Valid password:", password);
       setPassMessage("");
@@ -44,7 +47,7 @@ const TopPage = () => {
 
   return (
     <div className="topPageWrap">
-      <h1 className="topTitle">Abaguss</h1>
+      <h1 className="topTitle">Abagauss</h1>
       <form
         className="loginWrap"
         // action="success.html"
@@ -53,8 +56,22 @@ const TopPage = () => {
       >
         <TextField id="accId" label="Username" variant="outlined" />
         <div className="message">{usernameMessage}</div> <br />
-        <TextField id="password" label="Password" variant="outlined" />
+        <TextField
+          id="password"
+          label="Password"
+          variant="outlined"
+          type={showPassword ? "text" : "password"}
+          value={showPassword ? password : "*".repeat(password.length)}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <Button onClick={()=> setShowPassword(!showPassword)} variant="outlined" >
+          {showPassword? "Hide " : "Show "}
+         Password &nbsp;  
+         {showPassword? <PiEyeClosedDuotone /> : <FaRegEye />} 
+        </Button>
+
         <div className="password">{passMessage}</div> <br />
+
         <Button id="submit" variant="outlined" type="submit">
           Submit
         </Button>
@@ -64,12 +81,3 @@ const TopPage = () => {
 };
 
 export default TopPage;
-
-// //Validation for Password
-// if (password.length <= 5) {
-//   document.getElementById("txtId2").innerHTML =
-//     "※半角英数字5文字以上で入力してください";
-//   isRight = false;
-// } else {
-//   document.getElementById("txtId2").innerHTML = "";
-// }
