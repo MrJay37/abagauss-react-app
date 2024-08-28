@@ -16,7 +16,7 @@ git init
 Step 3: Commit any new changes
 ```shell
 git add .
-git commit -m 'New changes'
+git commit -m "New changes"
 ```
 [OPTIONAL] Step 4: If your default branch name is master, make sure to change it to main
 ```shell
@@ -33,9 +33,13 @@ git remote add origin https://github.com/MrJay37/abagauss-react-app
 ```
 Step 7: Pull code first (README.md can cause conflict)
 ```shell
-git pull origin main
+git pull origin main --allow-unrelated-histories
 ```
-[OPTIONAL] Step 8: If you get conflicts with README.md file, accept all changes from incoming file, do not retain changes from your README file, we will make those changes in the future.
+[OPTIONAL] Step 8: If you get conflicts with README.md file, accept all changes from incoming file, do not retain changes from your README file, we will make those changes in the future. After resolving conflicts, do the following
+```shell
+git add .
+git commit -m "README merged from remote"
+```
 
 Step 9: Push code to remote
 ```shell
