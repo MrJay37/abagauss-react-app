@@ -61,9 +61,10 @@ const TopPage = () => {
           label="Password"
           variant="outlined"
           type={showPassword ? "text" : "password"}
-          value={showPassword ? password : "*".repeat(password.length)}
+          value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
+        {/* {showPassword ? password : "*".repeat(password.length)} */}
         <Button onClick={()=> setShowPassword(!showPassword)} variant="outlined" >
           {showPassword? "Hide " : "Show "}
          Password &nbsp;  
