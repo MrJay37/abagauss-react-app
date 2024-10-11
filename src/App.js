@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Home from "./Home";
 import Users from "./Users";
 import Roles from "./Roles";
+import Shazam from "./Shazam"
 import "./App.css";
 import TopPage from "./TopPage";
 import "./styles/Global.scss";
@@ -20,6 +21,7 @@ function App() {
             <Route path="/users" element={<Users />} />
             <Route path="/roles" element={<Roles />} />
             <Route path="/login" element={<TopPage />} />
+            <Route path="/music" element={<Shazam />} />
             {/* <TopPage /> */}
           </Routes>
         </Router>

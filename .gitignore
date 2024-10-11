@@ -25,3 +25,5 @@ yarn-error.log*
 # data files which inform me these file have sensitive data
 src/lib/data
 # not gonna be shown at git scope 
+
+.env
